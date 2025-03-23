@@ -1,3 +1,5 @@
+// @use './variables.scss' as *; // 手动导入; 在nuxt.config.ts中vite.css.preprocessorOptions.scss.additionalData中可以自动导入;
+
 body {
   font-size: 14px;
   color: #333;
@@ -17,6 +19,6 @@ a {
 }
 
 .wrapper {
-  width: 1248px;
+  width: $contentWidth;
   margin: 0 auto;
 }

@@ -2,5 +2,14 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  css: ['normalize.css', '@/assets/css/global.scss'] // reset.css
+  css: ['normalize.css', '@/assets/css/global.scss'], // reset.css
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/css/variables.scss" as *;'
+        }
+      }
+    }
+  }
 })
