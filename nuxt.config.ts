@@ -19,6 +19,20 @@ export default defineNuxtConfig({
       }
     }
   },
+  modules: [
+      [
+          "@pinia/nuxt",
+        {
+          autoImports: [
+              // 自动引入 `defineStore()`
+              'defineStore', // import { defineStore } from 'pinia'
+              'storeToRefs',
+              // 自动引入 `defineStore()` 并重命名为 `definePiniaStore()`
+              ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia]
+          ]
+        },
+      ]
+  ],
   app: {
     head: {
       title: "OPPO手机商城",
