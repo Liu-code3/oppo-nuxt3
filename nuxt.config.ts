@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import ElementPlus from "unplugin-element-plus/vite";
 export default defineNuxtConfig({
   features: undefined,
   dev: false,
@@ -10,6 +12,10 @@ export default defineNuxtConfig({
     '@/assets/css/global.scss',
     '@/assets/cus-font/iconfont.css'
   ], // reset.css
+  build: {
+    // 该文件需要进行Babel转义
+    transpile: ["element-plus/es"]
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -17,7 +23,14 @@ export default defineNuxtConfig({
           additionalData: '@use "@/assets/css/variables.scss" as *;'
         }
       }
-    }
+    },
+    // 实现自动导入样式
+    plugins: [
+        ElementPlus({
+          useSource: true, // 启用源文件导入，以便按需导入样式
+          }
+        )
+    ]
   },
   modules: [
       [
