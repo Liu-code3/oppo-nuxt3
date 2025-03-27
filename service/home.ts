@@ -12,6 +12,7 @@ export const getHomeInfo = () => {
             onResponse({ response }) {
                 const homeStore = useHomeStore()
                 homeStore.changeNavBar(response._data.data.navbars)
+                homeStore.changeBanner(response._data.data.banners)
             }
         }
     )

@@ -6,22 +6,34 @@ interface INavBar {
     link: string;
 }
 
+interface IBanner {
+    id?: number;
+    picStr?: string;
+    link?: string;
+}
+
 interface IHomeState {
-    navbars: Partial<INavBar>[]
+    navbars: Partial<INavBar>[],
+    banners:  IBanner[]
 }
 
 export const useHomeStore = defineStore("home", {
     state: (): IHomeState => ({
-        navbars: []
+        navbars: [],
+        banners: []
     }),
     actions: {
         changeNavBar(payload: INavBar[]) {
             this.navbars = payload
+        },
+        changeBanner(payload: IBanner[]) {
+            this.banners = payload
         }
     }
 })
 
 export type {
     INavBar,
+    IBanner,
     IHomeState
 }
