@@ -2,13 +2,14 @@
   import { useHomeStore } from "@/store/home";
 
   const homeStore = useHomeStore();
-  const { banners } = storeToRefs(homeStore)
+  const { banners, categorys } = storeToRefs(homeStore)
 </script>
 
 <template>
   <div class="home">
     <div class="wrapper content">
       <swiper :banners="banners" />
+      <tab-category :categorys="categorys" />
     </div>
   </div>
 </template>

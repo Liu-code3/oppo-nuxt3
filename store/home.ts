@@ -12,15 +12,45 @@ interface IBanner {
     link?: string;
 }
 
+interface ICategory {
+    id?: number;
+    picStr?: string;
+    url?: string;
+    title?: string;
+    type?: string;
+    productDetailss?: IProductDetail[];
+}
+
+interface IActivity {
+    type?: number;
+    activityInfo?: string;
+}
+
+interface IPriceInfo {
+    prefix?: string;
+    buyPrice?: string;
+    currencyTag?: string;
+}
+
+interface IProductDetail {
+    id?: number;
+    title?: string;
+    url?: string;
+    priceInfo?: IPriceInfo;
+    activityList?: IActivity[];
+}
+
 interface IHomeState {
     navbars: Partial<INavBar>[],
-    banners:  IBanner[]
+    banners:  Partial<IBanner>[],
+    categorys: Partial<ICategory>[]
 }
 
 export const useHomeStore = defineStore("home", {
     state: (): IHomeState => ({
         navbars: [],
-        banners: []
+        banners: [],
+        categorys: []
     }),
     actions: {
         changeNavBar(payload: INavBar[]) {
@@ -28,6 +58,9 @@ export const useHomeStore = defineStore("home", {
         },
         changeBanner(payload: IBanner[]) {
             this.banners = payload
+        },
+        changeCategory(payload: ICategory[]) {
+            this.categorys = payload
         }
     }
 })
@@ -35,5 +68,6 @@ export const useHomeStore = defineStore("home", {
 export type {
     INavBar,
     IBanner,
+    ICategory,
     IHomeState
 }
