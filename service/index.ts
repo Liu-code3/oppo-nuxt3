@@ -23,7 +23,8 @@ interface ResultType<T> {
 
 // 默认配置
 const DEFAULT_CONFIG: RequestConfig = {
-  baseURL: "http://codercba.com:9060/oppo-nuxt/api",
+  // baseURL: "http://codercba.com:9060/oppo-nuxt/api",
+  baseURL: "http://localhost:3000/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json"
