@@ -10,6 +10,9 @@
     <div class="wrapper content">
       <swiper :banners="banners" />
       <tab-category :categorys="categorys" />
+      <template v-for="item in categorys">
+        <section-category :category="item"></section-category>
+      </template>
     </div>
   </div>
 </template>

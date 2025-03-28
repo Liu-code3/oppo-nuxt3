@@ -69,5 +69,6 @@ export type {
     INavBar,
     IBanner,
     ICategory,
+    IProductDetail,
     IHomeState
 }
