@@ -9,6 +9,7 @@
     <app-header />
     <navbar :navBars="data?.data.navbars"></navbar>
     <slot />
+    <app-footer />
   </div>
 </template>
 
